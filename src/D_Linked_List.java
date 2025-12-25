@@ -64,7 +64,8 @@ public class D_Linked_List<T> {
             this.tail.next = null; // remove pointer to last tail
         } else { // Has to be in between head and tail (internal Node)
             Node temp = r.last;
-
+            r.next.last = temp; // next item's last will point to the last of r
+            temp.next = r.next; // the item before r will point at the item after r to remove it
         }
     }
 
