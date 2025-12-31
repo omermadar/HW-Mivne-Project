@@ -8,4 +8,6 @@ public class Node<T> {
         this.next = next;
         this.last = last;
     }
+
+    public T Get_Data(){return this.data;}
 }

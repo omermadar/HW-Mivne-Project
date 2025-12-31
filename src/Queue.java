@@ -17,6 +17,10 @@ public class Queue<T> {
         size--;
         return first;
     }
+    public void Remove(Node<T> pointer){
+        this.LL.Remove(pointer);
+        size--;
+    }
 
     public boolean Check_Empty(){
         if(this.size == 0) return true;
@@ -25,6 +29,10 @@ public class Queue<T> {
 
     public Node<T> Last_In_Line(){
         return this.LL.getTail();
+    }
+
+    public Node<T> First_In_Line(){
+        return this.LL.getHead();
     }
 
     public int getSize() {
