@@ -15,7 +15,11 @@ public class ClinicManager {
     }
 
     public void patientEnter(String doctorId, String patientId) {
-
+        //find doc
+        // create pat refrence
+        // enqueue refrence
+        // take tail from queue
+        // create real pat with
     }
 
     public String nextPatientLeave(String doctorId) {
