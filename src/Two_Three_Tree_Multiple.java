@@ -21,7 +21,7 @@ public class Two_Three_Tree_Multiple<T extends Comparable<T>> {
 
     public TT_Node<T> Search(TT_Node<T> x, T k){
         if (x.isLeaf()) {
-           if (x.getKey() == k){
+           if (x.getKey().compareTo(k)== 0){
                return x;
            }
            else return null;
@@ -80,10 +80,10 @@ public class Two_Three_Tree_Multiple<T extends Comparable<T>> {
     public void Update_Size(TT_Node<T> x){
         int newSize = x.getLeft().getSize();
         if (x.getMiddle() != null){
-            newSize += (int)x.getMiddle().getKey();
+            newSize += x.getMiddle().getSize();
         }
         if (x.getRight() != null){
-            newSize += (int)x.getRight().getKey();
+            newSize += x.getRight().getSize();
         }
         x.setSize(newSize);
     }
@@ -146,7 +146,7 @@ public class Two_Three_Tree_Multiple<T extends Comparable<T>> {
         TT_Node<T> exists = Search(t.getRoot(), z.getKey());
         if(exists != null){ // To handle multiple keys
             exists.setCount(exists.getCount() + 1);
-            exists.setSize(exists.getSize() + (int)exists.getKey());
+            exists.setSize(exists.getSize() + (Integer)((Object)exists.getKey()));
             while (exists.getP() != null){
                 exists = exists.getP();
                 Update_Size(exists);
@@ -227,7 +227,7 @@ public class Two_Three_Tree_Multiple<T extends Comparable<T>> {
     public void Delete(Two_Three_Tree_Multiple<T> t, TT_Node<T> x){
         if(x.getCount() > 1) { // To handle multiple keys
             x.setCount(x.getCount() - 1);
-            x.setSize(x.getSize() - (int)x.getKey());
+            x.setSize(x.getSize() - (Integer)((Object)x.getKey()));
             while (x.getP() != null){
                 x = x.getP();
                 Update_Size(x);

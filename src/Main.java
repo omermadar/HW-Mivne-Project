@@ -375,7 +375,9 @@ public class Main {
         cm.doctorLeave("D2");
         sb.append("cycle 2 complete, ");
         cm.doctorEnter("D3");
-        for (int i = 0; i < 200; i++) cm.patientEnter("D3", "P3_" + i);
+        for (int i = 0; i < 200; i++) {
+            cm.patientEnter("D3", "P3_" + i);
+        }
         sb.append("cycle 3: added 200 patients, ");
         for (int i = 0; i < 200; i++) cm.nextPatientLeave("D3");
         sb.append("removed 200 patients, ");

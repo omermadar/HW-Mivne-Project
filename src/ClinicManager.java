@@ -151,9 +151,10 @@ public class ClinicManager {
 
     public int averageLoadWithinRange(int low, int high) {
         // minus 1 to get what is left from the low integer
+        if(high <  low) throw new IllegalArgumentException();
         int count_low = this.Amount_Of_Patients.Count_Search(this.Amount_Of_Patients.getRoot(), low - 1, 0);
         int count_high = this.Amount_Of_Patients.Count_Search(this.Amount_Of_Patients.getRoot(), high, 0);
-
+        if (count_high-count_low == 0) return 0;
         int size_low = this.Amount_Of_Patients.Size_Search(this.Amount_Of_Patients.getRoot(), low - 1, 0);
         int size_high = this.Amount_Of_Patients.Size_Search(this.Amount_Of_Patients.getRoot(), high, 0);
 
